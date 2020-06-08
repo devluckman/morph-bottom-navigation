@@ -1,24 +1,19 @@
 package com.tbuonomo.morphbottomnavigationsample
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_main.addItemButton
-import kotlinx.android.synthetic.main.activity_main.bottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.drawDebugButton
-import kotlinx.android.synthetic.main.activity_main.morphCornerRadiusSeekBar
-import kotlinx.android.synthetic.main.activity_main.morphCornerRadiusValue
-import kotlinx.android.synthetic.main.activity_main.morphItemRadiusSeekBar
-import kotlinx.android.synthetic.main.activity_main.morphItemRadiusValue
-import kotlinx.android.synthetic.main.activity_main.morphVerticalOffsetSeekBar
-import kotlinx.android.synthetic.main.activity_main.morphVerticalOffsetValue
-import kotlinx.android.synthetic.main.activity_main.removeItemButton
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
-  private var numVisibleChildren = 4
+  private var numVisibleChildren = 5
+
 
   companion object {
     private const val MAX_MENU_ITEMS = 5
@@ -54,6 +49,9 @@ class MainActivity : AppCompatActivity() {
   }
 
   private fun initMenuItemsVisibility() {
+    bottomNavigationView.morphItemRadius = 56.0F
+    bottomNavigationView.morphCornerRadius = 14.0F
+    bottomNavigationView.morphVerticalOffset = 46.0F
     for (i in 0 until bottomNavigationView.menu.size()) {
       bottomNavigationView.menu.getItem(i).isVisible = i < numVisibleChildren
     }
@@ -72,7 +70,8 @@ class MainActivity : AppCompatActivity() {
     morphItemRadiusSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
       override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
         val morphItemRadius = progress + minItemRadius
-        bottomNavigationView.morphItemRadius = morphItemRadius
+        Log.d("CHECK DATA ItemRadius", "=> $morphItemRadius")
+        bottomNavigationView.morphItemRadius = 56.0F
         morphItemRadiusValue.text = getString(R.string.value_dp, pxToDp(morphItemRadius).toInt())
       }
 
@@ -92,7 +91,8 @@ class MainActivity : AppCompatActivity() {
     morphCornerRadiusSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
       override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
         val morphCornerRadius = progress + minCornerRadius
-        bottomNavigationView.morphCornerRadius = morphCornerRadius
+        Log.d("CHECK DATA CORRADIUS", "=> $morphCornerRadius")
+        bottomNavigationView.morphCornerRadius = 14.0F
         morphCornerRadiusValue.text = getString(R.string.value_dp, pxToDp(morphCornerRadius).toInt())
       }
 
@@ -111,7 +111,8 @@ class MainActivity : AppCompatActivity() {
     morphVerticalOffsetSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
       override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
         val morphVerticalOffset = progress + minVerticalOffset
-        bottomNavigationView.morphVerticalOffset = morphVerticalOffset
+        Log.d("CHECK DATA Vertical", "=> $morphVerticalOffset")
+        bottomNavigationView.morphVerticalOffset = 46.0F
         morphVerticalOffsetValue.text = getString(R.string.value_dp, pxToDp(morphVerticalOffset).toInt())
       }
 

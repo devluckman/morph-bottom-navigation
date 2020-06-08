@@ -11,7 +11,7 @@
         android:title="Gallery"/>
     <item
         android:id="@+id/nav_slideshow"
-        android:icon="@drawable/icon_map"
+        android:enabled="false"
         android:title="Map"/>
     <item
         android:id="@+id/nav_manage"

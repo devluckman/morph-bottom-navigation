@@ -165,7 +165,22 @@
       app:morphCornerRadius="128dp"
       app:morphItemRadius="64dp"
       app:morphVerticalOffset="8dp"
+      app:labelVisibilityMode="labeled"
       style="@style/BottomNavigationView"
       />
 
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="52dp"
+      android:layout_height="52dp"
+      android:layout_marginBottom="24dp"
+      android:clickable="true"
+      android:focusable="true"
+      app:backgroundTint="@android:color/white"
+      app:elevation="8dp"
+      app:layout_anchor="@id/bottomNavigationView"
+      app:layout_anchorGravity="fill_vertical|center_horizontal"
+      app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

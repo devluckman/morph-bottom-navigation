@@ -24,7 +24,7 @@ class MorphBottomNavigationViewTopEdgeTreatment(private val bottomNavigationMenu
   lateinit var easyShapePath: MagicShapePath
 
   var lastSelectedItem: Int = 0
-  var selectedItem: Int = 0
+  var selectedItem: Int = 2
 
   override fun getEdgePath(length: Float, interpolation: Float, shapePath: ShapePath) {
     easyShapePath = MagicShapePath.create(0f, morphVerticalOffset, length, morphVerticalOffset)
@@ -36,8 +36,6 @@ class MorphBottomNavigationViewTopEdgeTreatment(private val bottomNavigationMenu
       if (view.isVisible && (i == selectedItem || i == lastSelectedItem)) {
         if (i == selectedItem) {
           morphHeightOffset = interpolation * morphVerticalOffset
-        } else if (i == lastSelectedItem) {
-          morphHeightOffset = (1 - interpolation) * morphVerticalOffset
         }
 
         val itemRect = view.globalVisibleRect

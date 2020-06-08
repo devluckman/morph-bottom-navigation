@@ -135,24 +135,24 @@ class MorphBottomNavigationView : BottomNavigationView, OnNavigationItemSelected
 
   override fun onNavigationItemSelected(item: MenuItem): Boolean {
     val indexOfItemSelected = menu.indexOfItem(item)
-    if (indexOfItemSelected != selectedItem) {
-      topEdgeTreatment.lastSelectedItem = selectedItem
-      topEdgeTreatment.selectedItem = indexOfItemSelected
-      selectedItem = indexOfItemSelected
-
-      selectionAnimator?.end()
-      selectionAnimator?.cancel()
-
-      selectionAnimator = ValueAnimator.ofFloat(0f, 1f)
-      selectionAnimator?.addUpdateListener {
-        materialShapeDrawable.interpolation = it.animatedValue as Float
-      }
-
-      selectionAnimator?.duration = 200
-      selectionAnimator?.interpolator = DecelerateInterpolator()
-
-      selectionAnimator?.start()
-    }
+//    if (indexOfItemSelected != selectedItem) {
+//      topEdgeTreatment.lastSelectedItem = 2
+//      topEdgeTreatment.selectedItem = indexOfItemSelected
+//      selectedItem = indexOfItemSelected
+//
+//      selectionAnimator?.end()
+//      selectionAnimator?.cancel()
+//
+//      selectionAnimator = ValueAnimator.ofFloat(0f, 1f)
+//      selectionAnimator?.addUpdateListener {
+//        materialShapeDrawable.interpolation = it.animatedValue as Float
+//      }
+//
+//      selectionAnimator?.duration = 200
+//      selectionAnimator?.interpolator = DecelerateInterpolator()
+//
+//      selectionAnimator?.start()
+//    }
 
     return true
   }
